@@ -34,7 +34,7 @@ const Navbar = () => {
 
       {/* Sidebar for Mobile */}
       <div
-        className={`fixed right-0 top-0 h-screen w-full md:w-3/5 lg:w-2/5 bg-white/90 backdrop-blur-lg z-50 
+        className={`fixed right-0 top-0 h-screen w-full md:w-3/5 lg:w-2/5 bg-white/90 backdrop-blur-3xl z-50 
               transform transition-all duration-700 ease-out origin-right shadow-xl
               ${
                 hamburgerClicked
