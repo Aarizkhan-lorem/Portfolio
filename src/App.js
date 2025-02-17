@@ -6,7 +6,6 @@ const ScrollingCards = () => {
     <div className="">
       <Navbar/>
       <Home/>
-
     </div>
   )
 };
