@@ -5,45 +5,32 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
 
 const Navbar = () => {
-  useEffect(() => {
-    const naam = document.querySelector(".naam");
-    const kaam =document.querySelector("#kaam");
-    const menuS =document.querySelector(".menuS");
-    function kaamKaro(){
-      naam.style.color ="white";
-      kaam.style.color ="white";
-      menuS.style.color ='white';
-    }
-    function kaamMatKaro(){
-      naam.style.color = "black";
-      kaam.style.color = "#6b7280";
-      menuS.style.color = "black";
-    }
-    const darkSection = document.querySelector("#darkSection");
-
-    if (!naam || !darkSection) return;
-
-    const colorChangeCallback = (entries) => {
-      entries[0].isIntersecting
-        ? (kaamKaro())
-        : (kaamMatKaro());
-    };
-
-    const colorChangeOptions = {};
-
-    const colorChangeObserver = new IntersectionObserver(
-      colorChangeCallback,
-      colorChangeOptions
-    );
-    colorChangeObserver.observe(darkSection);
-
-    // Cleanup observer on unmount
-    return () => colorChangeObserver.disconnect();
-  }, []);
-
-
 
   const [hamburgerClicked, setHamburgerClicked] = useState(false);
+   useEffect(() => {
+    const element = document.querySelector(".naam");
+    const kaam =document.querySelector("#kaam");
+    const menuS =document.querySelector('.menuS');
+    const margin = window.innerHeight - 50;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            element.style.filter = "invert(1)";
+            menuS.style.filter = "invert(1)";
+            kaam.style.color ="white";
+          } else {
+            element.style.filter = "invert(0)";
+            menuS.style.filter = "invert(0)";
+            kaam.style.color = "#6b7280";
+          }
+        });
+      },
+      { rootMargin: `0px 0px -${margin}px 0px`, threshold: 0 },
+    );
+    observer.observe(document.querySelector("#darkSec"));
+    },[]);
+
 
   useEffect(() => {
     if (hamburgerClicked) {
