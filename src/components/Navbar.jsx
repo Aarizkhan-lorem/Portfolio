@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { Link } from "react-scroll";
 import { FaChevronRight } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
@@ -7,30 +8,7 @@ import { IoClose } from "react-icons/io5";
 const Navbar = () => {
 
   const [hamburgerClicked, setHamburgerClicked] = useState(false);
-   useEffect(() => {
-    const element = document.querySelector(".naam");
-    const kaam =document.querySelector("#kaam");
-    const menuS =document.querySelector('.menuS');
-    const margin = window.innerHeight - 50;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            element.style.filter = "invert(1)";
-            menuS.style.filter = "invert(1)";
-            kaam.style.color ="white";
-          } else {
-            element.style.filter = "invert(0)";
-            menuS.style.filter = "invert(0)";
-            kaam.style.color = "#6b7280";
-          }
-        });
-      },
-      { rootMargin: `0px 0px -${margin}px 0px`, threshold: 0 },
-    );
-    observer.observe(document.querySelector("#darkSec"));
-    },[]);
-
+  
 
   useEffect(() => {
     if (hamburgerClicked) {
@@ -74,47 +52,134 @@ const Navbar = () => {
 
         {/* Sidebar Content */}
         <div className="p-40 mt-10 text-black flex justify-center items-center   flex-col gap-6 text-xl">
-          <NavLink to="/work" onClick={() => setHamburgerClicked(false)}>
-            Work
-          </NavLink>
-          <NavLink to="/benefits" onClick={() => setHamburgerClicked(false)}>
-            Benefits
-          </NavLink>
-          <NavLink to="/process" onClick={() => setHamburgerClicked(false)}>
-            Process
-          </NavLink>
-          <NavLink to="/about" onClick={() => setHamburgerClicked(false)}>
-            About
-          </NavLink>
+          <Link
+            to="section1"
+            smooth={true} // Enables smooth scrolling
+            duration={1000} // Scroll animation duration (in milliseconds)
+            offset={100}
+          >
+            <p
+              onClick={() => {
+                setHamburgerClicked(false);
+              }}
+              className="hover:text-cyan-600 hover:cursor-pointer transition"
+            >
+              Work
+            </p>
+          </Link>
+          <Link
+            to="section2"
+            smooth={true} // Enables smooth scrolling
+            duration={1000} // Scroll animation duration (in milliseconds)
+            offset={-50}
+          >
+            <p
+              onClick={() => {
+                setHamburgerClicked(false);
+              }}
+              className="hover:text-cyan-600 hover:cursor-pointer transition"
+            >
+              Benefits
+            </p>
+          </Link>
+          <Link
+            to="section3"
+            smooth={true} // Enables smooth scrolling
+            duration={1000} // Scroll animation duration (in milliseconds)
+            offset={-50}
+          >
+            <p
+              onClick={() => {
+                setHamburgerClicked(false);
+              }}
+              className="hover:text-cyan-600 hover:cursor-pointer transition"
+            >
+              Process
+            </p>
+          </Link>
+          <Link
+            to="section4"
+            smooth={true} // Enables smooth scrolling
+            duration={1000} // Scroll animation duration (in milliseconds)
+            offset={-50}
+          >
+            <p
+              onClick={() => {
+                setHamburgerClicked(false);
+              }}
+              className="hover:text-cyan-600 hover:cursor-pointer transition"
+            >
+              About
+            </p>
+          </Link>
         </div>
       </div>
 
       {/* Desktop Navbar */}
       <div className="flex w-[80%] py-3 font-[Inter] border-b justify-between items-center">
         {/* Logo */}
-        <div className=" text-xl text-black duration-200 naam">Aariz Khan</div>
+        <NavLink to={"/"} className={`hover:cursor-none `}>
+          <div className="font-cormorant italic text-4xl text-black duration-200 naam">
+            Aariz Khan
+          </div>
+        </NavLink>
 
         {/* Desktop NavLinks */}
         <ul className="hidden md:flex text-gray-500 gap-6" id="kaam">
-          <NavLink to="/work">
-            <li className="hover:text-cyan-600 transition">Work</li>
-          </NavLink>
-          <NavLink to="/benefits">
-            <li className="hover:text-cyan-600 transition">Benefits</li>
-          </NavLink>
-          <NavLink to="/process">
-            <li className="hover:text-cyan-600 transition">Process</li>
-          </NavLink>
-          <NavLink to="/about">
-            <li className="hover:text-cyan-600 transition">About</li>
-          </NavLink>
+          <Link
+            to="section1"
+            smooth={true} // Enables smooth scrolling
+            duration={1000} // Scroll animation duration (in milliseconds)
+            offset={100}
+          >
+            <li className="hover:text-cyan-600 hover:cursor-pointer transition">
+              Work
+            </li>
+          </Link>
+          <Link
+            to="section2"
+            smooth={true} // Enables smooth scrolling
+            duration={1000} // Scroll animation duration (in milliseconds)
+            offset={-50}
+          >
+            <li className="hover:text-cyan-600 hover:cursor-pointer transition">
+              Benefits
+            </li>
+          </Link>
+          <Link
+            to="section3"
+            smooth={true} // Enables smooth scrolling
+            duration={1000} // Scroll animation duration (in milliseconds)
+            offset={-50}
+          >
+            <li className="hover:text-cyan-600 hover:cursor-pointer transition">
+              Process
+            </li>
+          </Link>
+          <Link
+            to="section4"
+            smooth={true} // Enables smooth scrolling
+            duration={1000} // Scroll animation duration (in milliseconds)
+            offset={-50}
+          >
+            <li className="hover:text-cyan-600 hover:cursor-pointer transition">
+              About
+            </li>
+          </Link>
         </ul>
 
         {/* Project Request */}
-        <div className="hidden md:flex gap-1 items-center text-md text-blue-700 cursor-pointer hover:text-blue-800 transition">
-          <div>Project request</div>
-          <FaChevronRight className="text-blue-600" />
-        </div>
+        <Link
+          to="form"
+          smooth={true} // Enables smooth scrolling
+          duration={1000} // Scroll animation duration (in milliseconds)
+          offset={-50}
+        >
+          <div className="hidden md:flex gap-1 items-center text-md text-blue-700 cursor-pointer hover:text-blue-800 transition">
+            <div>Project request</div>
+            <FaChevronRight className="text-blue-600" />
+          </div>
+        </Link>
       </div>
     </div>
   );

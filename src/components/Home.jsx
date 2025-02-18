@@ -30,13 +30,49 @@ import work2 from "../assets/work-2.png";
 import work3 from "../assets/work-3.png";
 import work4 from "../assets/work-4.png";
 import { FiFigma } from "react-icons/fi";
+import { NavLink, useMatch } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { Element } from "react-scroll";
+import Form from "./Form";
+
 const Home = () => {
-  const [animateGradient, setAnimateGradient] = useState(false);
-  useEffect(() => {
-    setTimeout(() => {
-      setAnimateGradient(true);
-    }, 500);
-  }, []);
+      const location = useLocation();
+
+      const [animateGradient, setAnimateGradient] = useState(false);
+      useEffect(() => {
+        setTimeout(() => {
+          setAnimateGradient(true);
+        }, 500);
+      }, []);
+
+     useEffect(() => {
+          
+            const element = document.querySelector(".naam");
+            const kaam = document.querySelector("#kaam");
+            const menuS = document.querySelector(".menuS");
+            const darkSec = document.querySelector("#darkSec");
+            const margin = window.innerHeight - 50;
+            const observer = new IntersectionObserver(
+              (entries) => {
+                entries.forEach((entry) => {
+                  if (entry.isIntersecting) {
+                    element.style.filter = "invert(1)";
+                    menuS.style.filter = "invert(1)";
+                    kaam.style.color = "white";
+                  } else {
+                    element.style.filter = "invert(0)";
+                    menuS.style.filter = "invert(0)";
+                    kaam.style.color = "#6b7280";
+                  }
+                });
+              },
+              { rootMargin: `0px 0px -${margin}px 0px`, threshold: 0 }
+            );
+            observer.observe(darkSec);
+          
+       
+     }, [location.pathname]);
+  
 
 
 
@@ -109,6 +145,7 @@ const Home = () => {
       </div>
 
       {/* me section */}
+      <Element name="section4"></Element>
       <div className="mt-28  w-[90%] sm:w-[80%] mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-around">
         {/* Left Content */}
         <div className="w-full sm:w-6/12 text-center sm:text-left">
@@ -141,6 +178,7 @@ const Home = () => {
       </div>
 
       {/* my work sectiom */}
+      <Element name="section1"></Element>
       <div className="flex flex-col items-center mt-52 w-[90%] sm:w-[80%] mx-auto">
         <h2 className="text-center text-3xl sm:text-6xl font-semibold">
           A small selection <br /> of my work.
@@ -215,96 +253,106 @@ const Home = () => {
       {/* about me section */}
       {/* dont touch this div */}
       {/* <div className="bg-[radial-gradient(circle_at_center,_black_0%,_hsl(270,100%,30%)_20%,_hsl(300,100%,50%)_40%,_hsl(330,100%,70%)_60%,_hsl(60,100%,80%)_80%,_hsl(0,0%,100%)_100%)] w-full h-screen "></div> */}
-      <div
-        id="darkSec"
-        className="text-white mt-20 pb-40 inset-0 bg-[radial-gradient(circle,_rgba(0,0,0,0.9)_0%,_rgba(0,0,0,0.7)_40%,_rgba(0,0,0,1)_70%,_rgba(0,0,0,1)_100%)] blur-5xl opacity-100"
-      >
-        <div className="w-[80%] mx-auto pt-40 flex flex-col items-center ">
-          <h1 className="text-center text-2xl sm:text-6xl">
-            Your Vision, Built <br /> Online with a Trusted Partner.
-          </h1>
-          <div className="text-white w-full  sm:min-h-[400px] grid grid-cols-1 sm:grid-cols-4 sm:  mt-36 gap-3">
-            <div className="w-full py-6 bg-[#181818] rounded-lg border border-gray-600 flex flex-col gap-2 justify-center items-center">
-              <h1 className="text-5xl">2+</h1>
-              <p className="text-lg">Years of Experience</p>
-            </div>
-            <div className="w-full py-6 bg-[#181818] rounded-lg border border-gray-600 flex flex-col gap-2 justify-center items-center">
-              <h1 className="text-5xl">5+</h1>
-              <p className="text-lg">Completed Projects</p>
-            </div>
-            <div className="w-full py-6 sm:col-span-2 sm:row-span-2 min-h-[300px] bg-[#181818] rounded-lg px-5 gap-7 text-wrap text-md sm:text-xl border flex flex-col justify-center items-center  border-gray-600">
-              <img src={MyPic} className="rounded-full w-48 " />
-              <div className="text-center">
-                I'm Aariz.
-                <br /> I'm a full-stack developer who learned to code by
-                building projects and solving problems. I've explored various
-                related fields, including DevOps, Android, and open source.
+      <Element name="section2">
+        <div
+          id="darkSec"
+          className="text-white mt-20 pb-40 inset-0 bg-[radial-gradient(circle,_rgba(0,0,0,0.9)_0%,_rgba(0,0,0,0.7)_40%,_rgba(0,0,0,1)_70%,_rgba(0,0,0,1)_100%)] blur-5xl opacity-100"
+        >
+          <div className="w-[80%] mx-auto pt-40 flex flex-col items-center ">
+            <h1 className="text-center text-2xl sm:text-6xl">
+              Your Vision, Built <br /> Online with a Trusted Partner.
+            </h1>
+            <div className="text-white w-full  sm:min-h-[400px] grid grid-cols-1 sm:grid-cols-4 sm:  mt-36 gap-3">
+              <div className="w-full py-6 bg-[#181818] rounded-lg border border-gray-600 flex flex-col gap-2 justify-center items-center">
+                <h1 className="text-5xl">2+</h1>
+                <p className="text-lg">Years of Experience</p>
               </div>
-            </div>
-            <div className="w-full py-6 bg-[#181818] rounded-lg border border-gray-600 flex flex-col gap-2 justify-center items-center">
-              <h1 className="text-5xl">100%</h1>
-              <p className="text-lg">Passion</p>
-            </div>
-            <div className="w-full py-6 bg-[#181818] rounded-lg border border-gray-600 flex flex-col gap-2 justify-center items-center">
-              <p className="text-xl text-center">
-                Expert <br /> Web Developer
-              </p>
-            </div>
-            {/*this is start */}
-            <div className="w-full py-6 min-h-36 sm:col-span-3  sm:h-[300px] bg-[#181818] border rounded-lg border-gray-600 flex justify-center items-center ">
-              <div className=" flex flex-wrap justify-center gap-7  text-xl sm:gap-12 sm:text-7xl">
-                <SiExpress />
-                <SiTypescript />
-                <FaNodeJs />
-                <SiMongodb />
-                <SiRedux />
-                <FaReact />
-                <FaJsSquare />
-                <RiTailwindCssFill />
-                <FaCss3 />
-                <FaHtml5 />
-                <FiFigma />
-                <SiFramer />
+              <div className="w-full py-6 bg-[#181818] rounded-lg border border-gray-600 flex flex-col gap-2 justify-center items-center">
+                <h1 className="text-5xl">5+</h1>
+                <p className="text-lg">Completed Projects</p>
               </div>
-            </div>
-            <div className="w-full p-8 sm:min-h-[300px] bg-[#181818] border rounded-lg border-gray-600 flex flex-col items-center justify-center gap-3 ">
-              <div className="flex font-thin items-center justify-center text-7xl">
-                <IoChevronBackOutline />
-                <IoChevronForward />
+              <div className="w-full py-6 sm:col-span-2 sm:row-span-2 min-h-[300px] bg-[#181818] rounded-lg px-5 gap-7 text-wrap text-md sm:text-xl border flex flex-col justify-center items-center  border-gray-600">
+                <img src={MyPic} className="rounded-full w-48 " />
+                <div className="text-center">
+                  I'm Aariz.
+                  <br /> I'm a full-stack developer who learned to code by
+                  building projects and solving problems. I've explored various
+                  related fields, including DevOps, Android, and open source.
+                </div>
               </div>
-              <h1 className="text-3xl">Core Skills</h1>
+              <div className="w-full py-6 bg-[#181818] rounded-lg border border-gray-600 flex flex-col gap-2 justify-center items-center">
+                <h1 className="text-5xl">100%</h1>
+                <p className="text-lg">Passion</p>
+              </div>
+              <div className="w-full py-6 bg-[#181818] rounded-lg border border-gray-600 flex flex-col gap-2 justify-center items-center">
+                <p className="text-xl text-center">
+                  Expert <br /> Web Developer
+                </p>
+              </div>
+              {/*this is start */}
+              <div className="w-full py-6 min-h-36 sm:col-span-3  sm:h-[300px] bg-[#181818] border rounded-lg border-gray-600 flex justify-center items-center ">
+                <div className=" flex flex-wrap justify-center gap-7  text-xl sm:gap-12 sm:text-7xl">
+                  <SiExpress />
+                  <SiTypescript />
+                  <FaNodeJs />
+                  <SiMongodb />
+                  <SiRedux />
+                  <FaReact />
+                  <FaJsSquare />
+                  <RiTailwindCssFill />
+                  <FaCss3 />
+                  <FaHtml5 />
+                  <FiFigma />
+                  <SiFramer />
+                </div>
+              </div>
+              <div className="w-full p-8 sm:min-h-[300px] bg-[#181818] border rounded-lg border-gray-600 flex flex-col items-center justify-center gap-3 ">
+                <div className="flex font-thin items-center justify-center text-7xl">
+                  <IoChevronBackOutline />
+                  <IoChevronForward />
+                </div>
+                <h1 className="text-3xl">Core Skills</h1>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </Element>
+      <Element name="section3">
+        <div className="flex flex-col items-center gap-32  pb-28">
+          <div className="mt-64 sm:text-5xl text-3xl sticky top-20 sm:top-48 text-center ">
+            The Way <br /> I Build Websites
+          </div>
 
-      <div className="flex flex-col items-center gap-32  pb-28">
-        <div className="mt-64 sm:text-5xl text-3xl sticky top-20 sm:top-48 text-center">
-          The Way <br /> I Build Websites
+          <div className="mt-[100vh] w-[90vw] sm:w-[50%] sm:h-[45vh] h-[30vh] sticky top-48 bg-white border rounded-3xl shadow-2xl flex justify-center items-center card1">
+            Card 1
+          </div>
+          <div className=" w-[90vw] sm:w-[50%] sm:h-[45vh] h-[30vh] sticky top-56 bg-white border rounded-3xl shadow-2xl flex justify-center items-center card1">
+            Card 2
+          </div>
+          <div className=" w-[90vw] sm:w-[50%] sm:h-[45vh] h-[30vh] sticky top-64 bg-white border rounded-3xl shadow-2xl flex justify-center items-center card1">
+            Card 3
+          </div>
+          <div className=" w-[90vw] sm:w-[50%] sm:h-[45vh] h-[30vh]  sticky top-72 bg-white border rounded-3xl shadow-2xl flex justify-center items-center card1">
+            Card 4
+          </div>
+          <div className=" w-[90vw] sm:w-[50%] sm:h-[45vh] h-[30vh] sticky top-80 bg-white border rounded-3xl shadow-2xl flex justify-center items-center card1">
+            Card 5
+          </div>
         </div>
-        <div className="mt-[100vh] w-[90vw] sm:w-[50%] sm:h-[45vh] h-[30vh] sticky top-48 bg-white border rounded-3xl shadow-2xl flex justify-center items-center card1">
-          Card 1
-        </div>
-        <div className=" w-[90vw] sm:w-[50%] sm:h-[45vh] h-[30vh] sticky top-56 bg-white border rounded-3xl shadow-2xl flex justify-center items-center card1">
-          Card 2
-        </div>
-        <div className=" w-[90vw] sm:w-[50%] sm:h-[45vh] h-[30vh] sticky top-64 bg-white border rounded-3xl shadow-2xl flex justify-center items-center card1">
-          Card 3
-        </div>
-        <div className=" w-[90vw] sm:w-[50%] sm:h-[45vh] h-[30vh]  sticky top-72 bg-white border rounded-3xl shadow-2xl flex justify-center items-center card1">
-          Card 4
-        </div>
-        <div className=" w-[90vw] sm:w-[50%] sm:h-[45vh] h-[30vh] sticky top-80 bg-white border rounded-3xl shadow-2xl flex justify-center items-center card1">
-          Card 5
-        </div>
-      </div>
-      <div className="w-full h-screen">
+      </Element>
+
+      <div className="w-full">
         <div className="pt-52 w-[80%] mx-auto">
           <div className="text-3xl">Recent Blogs</div>
-          <div className="flex justify-between mt-8 py-4 border-t w-full">
-            <p>Isn't Frontend libraries changing too fast? The hidden truth</p>
-            <p>27 Sep, 2024</p>
-          </div>
+          <NavLink to={"/blogs-beginner-to-developer"}>
+            <div className="flex justify-between mt-8 py-4 border-t w-full">
+              <p>
+                "From Beginner to Web Developer: My Roadmap and Resources" – A
+                guide for beginners.
+              </p>
+              <p>18 Feb, 2025</p>
+            </div>
+          </NavLink>
           <div className="flex justify-between py-4 border-t w-full">
             <p>I tried Azure Web App, and it's frustrating</p>
             <p>03 Nov, 2024</p>
@@ -317,13 +365,23 @@ const Home = () => {
             <p>25 Dec, 2024</p>
           </div>
           <button className="mt-6 px-5 py-2 border rounded-md">View All</button>
-          <div className="my-44 w-full flex justify-center items-center gap-5 text-3xl  ">
-            <RiTwitterXFill className="hover:text-indigo-400 duration-200 cursor-pointer" />
-            <BiLogoGmail className="hover:text-indigo-400 duration-200 cursor-pointer" />
-            <FaLinkedin className="hover:text-indigo-400 duration-200 cursor-pointer" />
-            <FaGithub className="hover:text-indigo-400 duration-200 cursor-pointer" />
-          </div>
         </div>
+      </div>
+
+      <Form />
+      <div className="my-8 w-full flex justify-center items-center gap-5 text-3xl  ">
+        <a target="#" href="https://x.com/">
+          <RiTwitterXFill className="hover:text-indigo-400 duration-200 cursor-pointer" />
+        </a>
+        <a href="mailto:aariz.lorem@gmail.com">
+          <BiLogoGmail className="hover:text-indigo-400 duration-200 cursor-pointer" />
+        </a>
+        <a target="#" href="https://www.linkedin.com/in/aariz-lorem/">
+          <FaLinkedin className="hover:text-indigo-400 duration-200 cursor-pointer" />
+        </a>
+        <a target="#" href="https://github.com/Aarizkhan-lorem">
+          <FaGithub className="hover:text-indigo-400 duration-200 cursor-pointer" />
+        </a>
       </div>
     </div>
   );

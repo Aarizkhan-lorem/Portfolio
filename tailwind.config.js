@@ -2,7 +2,12 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        grechen: ["'Grechen Fuemen'", "cursive"], // Define the font
+        cormorant: ["'Cormorant Garamond'", "serif"],
+      },
+    },
   },
   plugins: [],
   corePlugins: {
