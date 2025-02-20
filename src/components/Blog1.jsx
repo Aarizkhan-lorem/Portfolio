@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react";
+import { ScrollRestoration } from "react-router-dom";
 
 const Blog1 = () => {
-    
   return (
     <div className="mt-16 w-[95%] sm:w-2/3 mx-auto">
+      <ScrollRestoration />
       <div className="flex flex-col gap-4 w-full py-12 border-b">
         <h1 className="text-3xl font-semibold italic pl-3">
           "From Beginner to Web Developer: My Roadmap and Resources" – A guide
@@ -188,6 +189,6 @@ const Blog1 = () => {
       <div className=""></div>
     </div>
   );
-}
+};
 
-export default Blog1
+export default Blog1;

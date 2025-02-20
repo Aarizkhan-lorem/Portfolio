@@ -1,9 +1,9 @@
-
+import { ScrollRestoration } from "react-router-dom";
 import { TbBrandRedux } from "react-icons/tb";
 import { SiFramer } from "react-icons/si";
 import { useEffect } from "react";
 import { IoLogoFigma } from "react-icons/io5";
-import { useState ,useRef } from "react";
+import { useState, useRef } from "react";
 import { FaJsSquare } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
 import { FaLaptopCode } from "react-icons/fa";
@@ -24,60 +24,52 @@ import { BiLogoGmail } from "react-icons/bi";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import home from "../assets/home.webp";
-import MyPic from "../assets/MyPic-removebg-preview.png"; 
+import MyPic from "../assets/MyPic-removebg-preview.png";
 import work1 from "../assets/work-1.png";
 import work2 from "../assets/work-2.png";
 import work3 from "../assets/work-3.png";
 import work4 from "../assets/work-4.png";
 import { FiFigma } from "react-icons/fi";
-import { NavLink, useMatch } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { Element } from "react-scroll";
 import Form from "./Form";
 
 const Home = () => {
-      const location = useLocation();
+  const location = useLocation();
 
-      const [animateGradient, setAnimateGradient] = useState(false);
-      useEffect(() => {
-        setTimeout(() => {
-          setAnimateGradient(true);
-        }, 500);
-      }, []);
+  const [animateGradient, setAnimateGradient] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimateGradient(true);
+    }, 500);
+  }, []);
 
-     useEffect(() => {
-          
-            const element = document.querySelector(".naam");
-            const kaam = document.querySelector("#kaam");
-            const menuS = document.querySelector(".menuS");
-            const darkSec = document.querySelector("#darkSec");
-            const margin = window.innerHeight - 50;
-            const observer = new IntersectionObserver(
-              (entries) => {
-                entries.forEach((entry) => {
-                  if (entry.isIntersecting) {
-                    element.style.filter = "invert(1)";
-                    menuS.style.filter = "invert(1)";
-                    kaam.style.color = "white";
-                  } else {
-                    element.style.filter = "invert(0)";
-                    menuS.style.filter = "invert(0)";
-                    kaam.style.color = "#6b7280";
-                  }
-                });
-              },
-              { rootMargin: `0px 0px -${margin}px 0px`, threshold: 0 }
-            );
-            observer.observe(darkSec);
-          
-       
-     }, [location.pathname]);
-  
+  useEffect(() => {
+    const element = document.querySelector(".naam");
+    const kaam = document.querySelector("#kaam");
+    const menuS = document.querySelector(".menuS");
+    const darkSec = document.querySelector("#darkSec");
+    const margin = window.innerHeight - 50;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            element.style.filter = "invert(1)";
+            menuS.style.filter = "invert(1)";
+            kaam.style.color = "white";
+          } else {
+            element.style.filter = "invert(0)";
+            menuS.style.filter = "invert(0)";
+            kaam.style.color = "#6b7280";
+          }
+        });
+      },
+      { rootMargin: `0px 0px -${margin}px 0px`, threshold: 0 },
+    );
+    observer.observe(darkSec);
+  }, [location.pathname]);
 
-
-
-  
-  
   return (
     <div className="font-[Inter] opacity-0 animate-fade-in">
       {/* Hero Section */}
