@@ -8,9 +8,6 @@ const Layout = () => (
   <>
     <div className="cursor-none">
       <CustomCursor />
-      <div className="w-full  absolute text-xl sm:top-32 top-0 sm:bg-transparent bg-white text-center z-40 text-red-800">
-        🚧 Portfolio Under Construction – Something amazing is coming soon! 🚧
-      </div>
       <Navbar />
       <Outlet />
     </div>

@@ -74,6 +74,9 @@ const Home = () => {
     <div className="font-[Inter] opacity-0 animate-fade-in">
       {/* Hero Section */}
       <div className="mt-28 w-full flex flex-col items-center justify-center min-h-screen px-6">
+        <div className="w-full  absolute text-xl top-0 sm:bg-transparent bg-white text-center z-40 text-red-800">
+          🚧 Portfolio Under Construction – Something amazing is coming soon! 🚧
+        </div>
         <div className="w-full max-w-xl lg:max-w-2xl text-center flex flex-col gap-8">
           {/* Title */}
           <div
@@ -169,33 +172,37 @@ const Home = () => {
         </div>
       </div>
 
-      {/* my work sectiom */}
+      {/* my work section */}
       <Element name="section1"></Element>
       <div className="flex flex-col items-center mt-52 w-[90%] sm:w-[80%] mx-auto">
         <h2 className="text-center text-3xl sm:text-6xl font-semibold">
           A small selection <br /> of my work.
         </h2>
         <div className="w-full h-[700px] grid grid-cols-1 gap-7 mt-20 sm:grid-cols-2">
-          <div className="relative bg-gradient-to-tr from-pink-200 via-pink-400 to-red-400 rounded-3xl flex justify-center items-end group overflow-hidden min-h-[150px] sm:min-h-[300px]">
+          <NavLink
+            to="https://task-manager-gray-rho.vercel.app/"
+            target="#"
+            className="relative cursor-none bg-gradient-to-tr from-pink-200 via-pink-400 to-red-400 rounded-3xl flex justify-center items-end group overflow-hidden min-h-[150px] sm:min-h-[300px]"
+          >
             <img
               src={work1}
-              alt=""
-              className="absolute bottom-0 rounded-t-xl h-[80%] w-[80%] object-cover duration-200 group-hover:w-full group-hover:h-full"
+              alt="TASK MANAGER APP"
+              className="absolute bottom-0 rounded-t-xl h-[80%] w-[80%] object-fill duration-200 group-hover:w-full group-hover:h-full"
             />
-            <div className="absolute  inset-0 flex justify-end items-baseline p-4 text-gray-600  font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div onClick={(e)=>e.stopPropagation()} className="absolute  inset-0 flex justify-end items-baseline p-4 text-gray-600  font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <div className="w-10 h-10 relative  bg-gray-200 rounded-full">
                 <span className="text-4xl absolute left-2 -top-[2px] font-extralight">
                   +
                 </span>
               </div>
             </div>
-          </div>
+          </NavLink>
 
           <div className="relative bg-gradient-to-tr from-amber-200 via-orange-300 to-red-300 rounded-3xl flex justify-center items-end group overflow-hidden min-h-[150px] sm:min-h-[300px]">
             <img
               src={work2}
               alt=""
-              className="absolute bottom-0 rounded-t-xl h-[80%] w-[80%] object-fit duration-200 group-hover:w-full group-hover:h-full"
+              className="absolute bottom-0 rounded-t-xl h-[80%] w-[80%] object-fill duration-200 group-hover:w-full group-hover:h-full"
             />
             <div className="absolute  inset-0 flex justify-end items-baseline p-4 text-gray-600  font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <div className="w-10 h-10 relative  bg-gray-200 rounded-full">
