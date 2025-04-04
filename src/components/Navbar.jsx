@@ -131,8 +131,9 @@ const Navbar = () => {
             smooth={true} // Enables smooth scrolling
             duration={1000} // Scroll animation duration (in milliseconds)
             offset={100}
+            
           >
-            <li className="hover:text-cyan-600 hover:cursor-pointer transition">
+            <li className="hover:text-cyan-600 transition">
               Work
             </li>
           </Link>
@@ -142,7 +143,7 @@ const Navbar = () => {
             duration={1000} // Scroll animation duration (in milliseconds)
             offset={-50}
           >
-            <li className="hover:text-cyan-600 hover:cursor-pointer transition">
+            <li className="hover:text-cyan-600 transition">
               Benefits
             </li>
           </Link>
@@ -152,7 +153,7 @@ const Navbar = () => {
             duration={1000} // Scroll animation duration (in milliseconds)
             offset={-50}
           >
-            <li className="hover:text-cyan-600 hover:cursor-pointer transition">
+            <li className="hover:text-cyan-600 transition">
               Process
             </li>
           </Link>
@@ -162,7 +163,7 @@ const Navbar = () => {
             duration={1000} // Scroll animation duration (in milliseconds)
             offset={-50}
           >
-            <li className="hover:text-cyan-600 hover:cursor-pointer transition">
+            <li className="hover:text-cyan-600 transition">
               About
             </li>
           </Link>
@@ -175,7 +176,7 @@ const Navbar = () => {
           duration={1000} // Scroll animation duration (in milliseconds)
           offset={-50}
         >
-          <div className="hidden md:flex gap-1 items-center text-md text-blue-700 cursor-pointer hover:text-blue-800 transition">
+          <div className="hidden md:flex hover:bg-gray-200 p-1 rounded-md gap-1 items-center text-md text-blue-700 hover:text-blue-800 transition">
             <div>Project request</div>
             <FaChevronRight className="text-blue-600" />
           </div>

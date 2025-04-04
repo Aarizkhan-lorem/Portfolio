@@ -1,9 +1,9 @@
-import { ScrollRestoration } from "react-router-dom";
+
 import { TbBrandRedux } from "react-icons/tb";
 import { SiFramer } from "react-icons/si";
 import { useEffect } from "react";
 import { IoLogoFigma } from "react-icons/io5";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { FaJsSquare } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
 import { FaLaptopCode } from "react-icons/fa";
@@ -271,7 +271,7 @@ const Home = () => {
                 <p className="text-lg">Completed Projects</p>
               </div>
               <div className="w-full py-6 sm:col-span-2 sm:row-span-2 min-h-[300px] bg-[#181818] rounded-lg px-5 gap-7 text-wrap text-md sm:text-xl border flex flex-col justify-center items-center  border-gray-600">
-                <img src={MyPic} className="rounded-full w-48 " />
+                <img src={MyPic} alt="" className="rounded-full w-48 " />
                 <div className="text-center">
                   I'm Aariz.
                   <br /> I'm a full-stack developer who learned to code by
