@@ -6,6 +6,7 @@ import { IoLogoFigma } from "react-icons/io5";
 import { useState } from "react";
 import { FaJsSquare } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
+import { BsChevronDoubleDown } from "react-icons/bs";
 import { FaLaptopCode } from "react-icons/fa";
 import { GoPlus } from "react-icons/go";
 import { IoChevronBackOutline } from "react-icons/io5";
@@ -34,7 +35,8 @@ import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { Element } from "react-scroll";
 import Form from "./Form";
-
+import websiteProcessData from "../data/websiteProcessData"
+const topOffsets = ["top-48", "top-56", "top-64", "top-72", "top-80"];
 const Home = () => {
   const location = useLocation();
 
@@ -131,7 +133,7 @@ const Home = () => {
             playsInline
             muted
             loop
-            className="absolute w-3/4 top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]"
+            className="absolute w-[85%] top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]"
           >
             <source src="/showreel-hero-final.mp4" type="video/mp4" />
             Your browser does not support the video tag.
@@ -180,7 +182,7 @@ const Home = () => {
         </h2>
         <div className="w-full h-[700px] grid grid-cols-1 gap-7 mt-20 sm:grid-cols-2">
           <NavLink
-            to="https://task-manager-gray-rho.vercel.app/"
+            to="https://edgy-three.vercel.app/"
             target="#"
             className="relative cursor-none bg-gradient-to-tr from-pink-200 via-pink-400 to-red-400 rounded-3xl flex justify-center items-end group overflow-hidden min-h-[150px] sm:min-h-[300px]"
           >
@@ -189,7 +191,10 @@ const Home = () => {
               alt="TASK MANAGER APP"
               className="absolute bottom-0 rounded-t-xl h-[80%] w-[80%] object-fill duration-200 group-hover:w-full group-hover:h-full"
             />
-            <div onClick={(e)=>e.stopPropagation()} className="absolute  inset-0 flex justify-end items-baseline p-4 text-gray-600  font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div
+              onClick={(e) => e.stopPropagation()}
+              className="absolute  inset-0 flex justify-end items-baseline p-4 text-gray-600  font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
               <div className="w-10 h-10 relative  bg-gray-200 rounded-full">
                 <span className="text-4xl absolute left-2 -top-[2px] font-extralight">
                   +
@@ -198,7 +203,11 @@ const Home = () => {
             </div>
           </NavLink>
 
-          <div className="relative bg-gradient-to-tr from-amber-200 via-orange-300 to-red-300 rounded-3xl flex justify-center items-end group overflow-hidden min-h-[150px] sm:min-h-[300px]">
+          <NavLink
+            to="https://task-manager-gray-rho.vercel.app/"
+            target="#"
+            className="relative cursor-none bg-gradient-to-tr from-amber-200 via-orange-300 to-red-300 rounded-3xl flex justify-center items-end group overflow-hidden min-h-[150px] sm:min-h-[300px]"
+          >
             <img
               src={work2}
               alt=""
@@ -211,24 +220,13 @@ const Home = () => {
                 </span>
               </div>
             </div>
-          </div>
+          </NavLink>
 
-          <div className="relative bg-gradient-to-tr from-gray-200 via-slate-200 to-white rounded-3xl flex justify-center items-end group overflow-hidden min-h-[150px] sm:min-h-[300px]">
-            <img
-              src={work4}
-              alt=""
-              className="absolute bottom-0 rounded-t-xl h-[80%] w-[80%] object-fit duration-200 group-hover:w-full group-hover:h-full"
-            />
-            <div className="absolute  inset-0 flex justify-end items-baseline p-4 text-gray-600  font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="w-10 h-10 relative  bg-gray-200 rounded-full">
-                <span className="text-4xl absolute left-2 -top-[2px] font-extralight">
-                  +
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div className="relative bg-gradient-to-tr from-gray-700 via-gray-500 to-gray-100 rounded-3xl flex justify-center items-end group overflow-hidden min-h-[150px] sm:min-h-[300px]">
+          <NavLink
+            to={"https://work-aura.vercel.app/"}
+            target="#"
+            className="relative cursor-none bg-gradient-to-tr from-gray-700 via-gray-500 to-gray-100 rounded-3xl flex justify-center items-end group overflow-hidden min-h-[150px] sm:min-h-[300px]"
+          >
             <img
               src={work3}
               alt=""
@@ -241,7 +239,26 @@ const Home = () => {
                 </span>
               </div>
             </div>
-          </div>
+          </NavLink>
+
+          <NavLink
+            to={"https://cars-concept.vercel.app/"}
+            target="#"
+            className="relative cursor-none bg-gradient-to-tr from-gray-200 via-slate-200 to-white rounded-3xl flex justify-center items-end group overflow-hidden min-h-[150px] sm:min-h-[300px]"
+          >
+            <img
+              src={work4}
+              alt=""
+              className="absolute bottom-0 rounded-t-xl h-[80%] w-[80%] object-fit duration-200 group-hover:w-full group-hover:h-full"
+            />
+            <div className="absolute  inset-0 flex justify-end items-baseline p-4 text-gray-600  font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="w-10 h-10 relative  bg-gray-200 rounded-full">
+                <span className="text-4xl absolute left-2 -top-[2px] font-extralight">
+                  +
+                </span>
+              </div>
+            </div>
+          </NavLink>
         </div>
         <div className="flex items-center gap-2  mt-14 text-blue-700 text-xl  hover:bg-gray-200 cursor-none p-4 hover:rounded-lg duration-100">
           Load more projects
@@ -317,26 +334,29 @@ const Home = () => {
         </div>
       </Element>
       <Element name="section3">
-        <div className="flex flex-col items-center gap-32  pb-28">
-          <div className="mt-64 sm:text-5xl text-3xl sticky top-20 sm:top-48 text-center ">
+        <div className="relative flex flex-col items-center gap-32  pb-28">
+          <div className="absolute top-[50rem] text-5xl text-green-800 animate-bounce">
+            <BsChevronDoubleDown />
+          </div>
+          <div className="mt-64 bg-white sm:text-5xl text-3xl sticky top-20 sm:top-48 text-center ">
             The Way <br /> I Build Websites
           </div>
-
-          <div className="mt-[100vh] w-[90vw] sm:w-[50%] sm:h-[45vh] h-[30vh] sticky top-48 bg-white border rounded-3xl shadow-2xl flex justify-center items-center card1">
-            Card 1
-          </div>
-          <div className=" w-[90vw] sm:w-[50%] sm:h-[45vh] h-[30vh] sticky top-56 bg-white border rounded-3xl shadow-2xl flex justify-center items-center card1">
-            Card 2
-          </div>
-          <div className=" w-[90vw] sm:w-[50%] sm:h-[45vh] h-[30vh] sticky top-64 bg-white border rounded-3xl shadow-2xl flex justify-center items-center card1">
-            Card 3
-          </div>
-          <div className=" w-[90vw] sm:w-[50%] sm:h-[45vh] h-[30vh]  sticky top-72 bg-white border rounded-3xl shadow-2xl flex justify-center items-center card1">
-            Card 4
-          </div>
-          <div className=" w-[90vw] sm:w-[50%] sm:h-[45vh] h-[30vh] sticky top-80 bg-white border rounded-3xl shadow-2xl flex justify-center items-center card1">
-            Card 5
-          </div>
+          {websiteProcessData.map((step, index) => (
+            <div
+              key={step.id}
+              className={`mt-[100vh] w-[90vw] sm:w-[80vw] md:w-[60vw] lg:w-[45vw] xl:w-[50%]
+                min-h-[35vh] sm:min-h-[40vh] md:min-h-[45vh] text-center sticky ${topOffsets[index]} 
+                bg-white border rounded-3xl shadow-2xl flex flex-col justify-center items-center 
+                px-6 py-6 mx-auto`}
+            >
+              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-3">
+                {step.id}. {step.title}
+              </h3>
+              <p className="text-gray-600 text-sm sm:text-base md:text-[16px] leading-relaxed">
+                {step.description}
+              </p>
+            </div>
+          ))}
         </div>
       </Element>
 
@@ -369,7 +389,7 @@ const Home = () => {
 
       <Form />
       <div className="my-8 w-full flex justify-center items-center gap-5 text-3xl  ">
-        <a target="#" href="https://x.com/">
+        <a target="#" href="https://x.com/Aariz_Khan__">
           <RiTwitterXFill className="hover:text-indigo-400 duration-200 cursor-pointer" />
         </a>
         <a href="mailto:aariz.lorem@gmail.com">
